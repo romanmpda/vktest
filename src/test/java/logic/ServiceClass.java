@@ -1,5 +1,7 @@
 package logic;
 
+import com.codeborne.selenide.SelenideElement;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -10,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ServiceClass {
   String propsPath = "src/main/resources/settings.properties";
+  String pathToFile = "src/main/resources/files";
 
   public String getPropsValue(String key) {
     String value;
@@ -23,5 +26,8 @@ public class ServiceClass {
     value = appProps.getProperty(key);
     log.info("Ключ: {} и его значение: {}", key, value);
     return value;
+  }
+  public void uploadFile(SelenideElement element, String filename){
+    element.uploadFile(new File(pathToFile + filename));
   }
 }

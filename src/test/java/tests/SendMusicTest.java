@@ -43,6 +43,41 @@ public class SendMusicTest {
     Assert.assertEquals(1, 0);
   }
 
+  @Step("Шаг4: отправка композиции c ПК пользователя в чат")
+  @Test(priority = 2)
+  public void sendCompositionPc() {
+    mP.attachFile("song.mp3");
+    Assert.assertEquals(1, 0);
+  }
+
+  @Step("Шаг5: отправка документа c ПК пользователя в чат")
+  @Test(priority = 3)
+  public void sendDocPc() {
+    mP.attachFile("QA_Automation.docx");
+    Assert.assertEquals(1, 0);
+  }
+
+  @Step("Шаг6: отправка картинки c ПК пользователя в чат")
+  @Test(priority = 4)
+  public void sendPicturePc() {
+    mP.attachFile("bmw.jpg");
+    Assert.assertEquals(1, 0);
+  }
+
+  @Step("Шаг7: отправка картинки из библиотеки пользователя в чат")
+  @Test(priority = 4)
+  public void sendPicture() {
+    mP.addPhoto();
+    Assert.assertEquals(1, 0);
+  }
+
+  @Step("Шаг8: отправка документа из библиотеки пользователя в чат")
+  @Test(priority = 3)
+  public void sendDoc() {
+    mP.addDoc();
+    Assert.assertEquals(1, 0);
+  }
+
   @Step("Шаг4: удаление чата после выполнения тестов")
   @AfterSuite(alwaysRun = true)
   public void afterActions() {
